@@ -1,0 +1,20 @@
+<!-- for templates -->   
+
+<!-- THE NAME OF THIS DIRECTORY MUST BE TEMPLATES NOT template -->
+<!--  we need to create a templates directory under blog app then another directory named blog (blog -> tmeplate -> blog)  -->
+
+{% extends "blog/base.html" %}  <!--extending the base template of blog app-->
+{% block content %}  <!-- block starts from here-->
+    {% for post in posts %}  <!--here 'posts' is that part of context dictionary --> 
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted }}</small>
+          </div>
+          <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.content }}</p>
+        </div>
+      </article>
+    {% endfor %}
+{% endblock content %}   <!-- block ends here-->
