@@ -35,9 +35,15 @@
                 <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
               </div>
               <!-- Navbar Right Side -->
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Login</a>
-                <a class="nav-item nav-link" href="#">Register</a>
+              <div classs="navbar-nav">
+                <!-- edited css too  -->
+                {% if user.is_authenticated %}  <!--here we are using this check where we are hecking wheather the user is logged in or not if its logged in the display log out else login (user.authenticated means you are logged in )-->
+                <a style="display: inline-block; color: #cbd5db;" class="nav-item nav-link" href="{% url 'profile' %}">profile</a>
+                <a style="display: inline-block; color: #cbd5db;" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a style="display: inline-block; color: #cbd5db;" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a style="display: inline-block; color: #cbd5db;" class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}
               </div>
             </div>
           </div>

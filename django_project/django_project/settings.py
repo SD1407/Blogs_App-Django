@@ -126,3 +126,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # changing the rispy template pack(check crispy documentaion for more)
+
+LOGIN_REDIRECT_URL = 'blog-home'  # here we have changed the login page redirecting credentials as by default django redirects it to accounts/profile but we have changed it to 'blog-home' page
+
+LOGIN_URL = 'login'  # by default it will search at "accounts/login/" but we are changing this to 'login' now that profile page will direct to 'login' page

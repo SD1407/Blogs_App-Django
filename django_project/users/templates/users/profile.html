@@ -1,0 +1,6 @@
+
+{% extends "blog/base.html" %}  <!--extending the base template of blog app-->
+{% load crispy_forms_tags %}
+{% block content %}  <!-- block starts from here-->
+    <h2>{{ user.username }}</h2>   <!--we dont need to pass user as it is default for django-->
+{% endblock content %}   <!-- block ends here-->
