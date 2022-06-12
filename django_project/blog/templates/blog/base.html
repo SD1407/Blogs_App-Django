@@ -50,6 +50,13 @@
     <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+            {% if messages %}  <!-- here we are poping out the text -->
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">  <!--takes the message tag after alert-->
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">

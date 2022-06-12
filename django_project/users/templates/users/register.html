@@ -1,0 +1,24 @@
+
+{% extends "blog/base.html" %}  <!--extending the base template of blog app-->
+{% load crispy_forms_tags %}
+{% block content %}  <!-- block starts from here-->
+    <div class="content-section">
+        <form method="POST">  <!--the work of  method=POST will see later-->
+            {% csrf_token %}  <!--this csrf token is very very imp it gives an extra layer of security to the form it is required -->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                <!-- {{ form }} -->
+                <!--{{ form.as_p }} --> <!--this will create proper paragraphs-->
+                {{ form|crispy }}  <!--using crispy now-this will automatically add bootstrap-->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a href="#" class="ml-2">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}   <!-- block ends here-->

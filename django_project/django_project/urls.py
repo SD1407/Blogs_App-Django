@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include  # here we are importing include which is imp for including that 'blogs/path'
-
+ # here we could have created urls for that users app specifically and could have called it like other apps(blog, home page) but her we are importing its views and redirecting it through a different method
+from users import views as user_views  # importing views of users as user_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', user_views.register, name='register'),  # here redirecting it to view section and using the register function there
     path('', include('blog.urls')),  # here we are giving the path as 'blog/' if we enter blog thne this will redirect to that "blog/urls" and there "" means home will be called
     
 ]
